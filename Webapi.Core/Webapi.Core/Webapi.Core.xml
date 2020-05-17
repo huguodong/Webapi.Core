@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Webapi.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Webapi.Core.Controllers.UserController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.Hello">
+            <summary>
+            hello请求
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.User(Webapi.Core.Model.User)">
+            <summary>
+            获取User实体
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

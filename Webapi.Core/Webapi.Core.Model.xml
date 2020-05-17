@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Webapi.Core.Model</name>
+    </assembly>
+    <members>
+        <member name="T:Webapi.Core.Model.User">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.User.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.User.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.User.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+    </members>
+</doc>
