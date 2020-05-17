@@ -9,4 +9,9 @@
     <DocumentationFile>..\Webapi.Core.Model.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Enity\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
 </Project>

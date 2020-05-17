@@ -18,6 +18,14 @@
             <param name="jwtStr"></param>
             <returns></returns>
         </member>
+        <member name="M:Webapi.Core.Controllers.TestController.Sum(System.Int32,System.Int32)">
+            <summary>
+            求和
+            </summary>
+            <param name="i"></param>
+            <param name="j"></param>
+            <returns></returns>
+        </member>
         <member name="T:Webapi.Core.Controllers.UserController">
             <summary>
             用户管理
