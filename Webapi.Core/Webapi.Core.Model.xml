@@ -4,6 +4,21 @@
         <name>Webapi.Core.Model</name>
     </assembly>
     <members>
+        <member name="T:Webapi.Core.Model.TokenModel">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.TokenModel.Uid">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.TokenModel.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
         <member name="T:Webapi.Core.Model.User">
             <summary>
             用户表

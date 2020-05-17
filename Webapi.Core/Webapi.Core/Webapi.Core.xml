@@ -4,6 +4,20 @@
         <name>Webapi.Core</name>
     </assembly>
     <members>
+        <member name="M:Webapi.Core.Auth.JwtHelper.IssueJwt(Webapi.Core.Model.TokenModel)">
+            <summary>
+            颁发JWT字符串
+            </summary>
+            <param name="tokenModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Auth.JwtHelper.SerializeJwt(System.String)">
+            <summary>
+            解析
+            </summary>
+            <param name="jwtStr"></param>
+            <returns></returns>
+        </member>
         <member name="T:Webapi.Core.Controllers.UserController">
             <summary>
             用户管理
@@ -12,6 +26,37 @@
         <member name="M:Webapi.Core.Controllers.UserController.Hello">
             <summary>
             hello请求
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.Login(System.String)">
+            <summary>
+            获取token
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.Admin">
+            <summary>
+            需要Admin权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.System">
+            <summary>
+            需要System权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.SystemAndAdmin">
+            <summary>
+            需要System和Admin权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.ParseToken">
+            <summary>
+            解析Token
             </summary>
             <returns></returns>
         </member>

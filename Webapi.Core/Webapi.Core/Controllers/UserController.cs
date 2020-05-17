@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Webapi.Core.Auth;
 using Webapi.Core.Model;
 
 namespace Webapi.Core.Controllers
@@ -21,6 +18,86 @@ namespace Webapi.Core.Controllers
         public IActionResult Hello()
         {
             return Ok("Hello World");
+        }
+
+        /// <summary>
+        /// 获取token
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Login(string role)
+        {
+            string jwtStr = string.Empty;
+            bool suc = false;
+
+            if (role != null)
+            {
+                // 将用户id和角色名，作为单独的自定义变量封装进 token 字符串中。
+                TokenModel tokenModel = new TokenModel { Uid = "abcde", Role = role };
+                jwtStr = JwtHelper.IssueJwt(tokenModel);//登录，获取到一定规则的 Token 令牌
+                suc = true;
+            }
+            else
+            {
+                jwtStr = "login fail!!!";
+            }
+
+            return Ok(new
+            {
+                success = suc,
+                token = jwtStr
+            });
+        }
+        /// <summary>
+        /// 需要Admin权限
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
+        {
+            return Ok("hello admin");
+        }
+
+
+        /// <summary>
+        /// 需要System权限
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize(Roles = "System")]
+        public IActionResult System()
+        {
+            return Ok("hello System");
+        }
+
+        /// <summary>
+        /// 需要System和Admin权限
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize(Policy = "SystemOrAdmin")]
+
+        public IActionResult SystemAndAdmin()
+        {
+            return Ok("hello SystemOrAdmin");
+        }
+
+
+        /// <summary>
+        /// 解析Token
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize]
+        public IActionResult ParseToken()
+        {
+            //需要截取Bearer 
+            var tokenHeader = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var user = JwtHelper.SerializeJwt(tokenHeader);
+            return Ok(user);
+
         }
 
         /// <summary>
