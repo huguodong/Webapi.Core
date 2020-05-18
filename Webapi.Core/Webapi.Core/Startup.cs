@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Webapi.Core.Common.Helper;
+using Webapi.Core.Repository.Sugar;
 using Webapi.Core.SetUp;
 
 namespace Webapi.Core
@@ -22,6 +23,10 @@ namespace Webapi.Core
         {
             //注册appsettings读取类
             services.AddSingleton(new Appsettings(Configuration));
+
+            //数据库配置
+            BaseDBConfig.ConnectionString = Configuration.GetSection("AppSettings:ConnectionString").Value;
+
             //var text = Appsettings.app(new string[] { "AppSettings", "ConnectionString" });
             //Console.WriteLine($"ConnectionString:{text}");
             //Console.ReadLine();

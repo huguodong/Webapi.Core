@@ -4,6 +4,32 @@
         <name>Webapi.Core.Model</name>
     </assembly>
     <members>
+        <member name="T:Webapi.Core.Model.Enity.User">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.Enity.User.UserId">
+            <summary>
+            Desc:用户ID
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:Webapi.Core.Model.Enity.User.UserName">
+            <summary>
+            Desc:用户名
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Webapi.Core.Model.Enity.User.Age">
+            <summary>
+            Desc:年龄
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
         <member name="T:Webapi.Core.Model.MessageModel`1">
             <summary>
             通用返回信息类
@@ -97,26 +123,6 @@
         <member name="P:Webapi.Core.Model.TokenModel.Role">
             <summary>
             角色
-            </summary>
-        </member>
-        <member name="T:Webapi.Core.Model.User">
-            <summary>
-            用户表
-            </summary>
-        </member>
-        <member name="P:Webapi.Core.Model.User.Id">
-            <summary>
-            id
-            </summary>
-        </member>
-        <member name="P:Webapi.Core.Model.User.Name">
-            <summary>
-            姓名
-            </summary>
-        </member>
-        <member name="P:Webapi.Core.Model.User.Age">
-            <summary>
-            年龄
             </summary>
         </member>
     </members>

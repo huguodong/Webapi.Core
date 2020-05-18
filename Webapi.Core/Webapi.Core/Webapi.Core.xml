@@ -68,11 +68,25 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Webapi.Core.Controllers.UserController.User(Webapi.Core.Model.User)">
+        <member name="M:Webapi.Core.Controllers.UserController.User(Webapi.Core.Model.Enity.User)">
             <summary>
             获取User实体
             </summary>
             <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.GetUser(System.Int32)">
+            <summary>
+            根据id获取数据
+            </summary>
+            <param name="id">参数id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.Add(Webapi.Core.Model.Enity.User)">
+            <summary>
+            添加数据
+            </summary>
+            <param name="id">参数id</param>
             <returns></returns>
         </member>
     </members>

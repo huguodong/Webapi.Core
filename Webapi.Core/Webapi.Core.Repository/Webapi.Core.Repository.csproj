@@ -1,11 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Webapi.Core.IRepository\Webapi.Core.IRepository.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="sqlSugarCore" Version="5.0.0.14" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Webapi.Core.IRepository\Webapi.Core.IRepository.csproj" />
+		<ProjectReference Include="..\Webapi.Core.Model\Webapi.Core.Model.csproj" />
+	</ItemGroup>
 
 </Project>

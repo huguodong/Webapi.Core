@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Nullable>annotations</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -11,6 +12,10 @@
 
 	<ItemGroup>
 		<Folder Include="ViewModel\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="sqlSugarCore" Version="5.0.0.14" />
 	</ItemGroup>
 
 </Project>

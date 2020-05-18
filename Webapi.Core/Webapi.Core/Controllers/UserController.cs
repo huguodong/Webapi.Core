@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using Webapi.Core.Auth;
+using Webapi.Core.IService;
 using Webapi.Core.Model;
+using Webapi.Core.Model.Enity;
+using Webapi.Core.Service;
 
 namespace Webapi.Core.Controllers
 {
@@ -111,5 +115,61 @@ namespace Webapi.Core.Controllers
         {
             return Ok(user);
         }
+
+
+        /// <summary>
+        /// 根据id获取数据
+        /// </summary>
+        /// <param name="id">参数id</param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            IUserService userService = new UserService();
+            User user = await userService.QueryByID(id);
+            return Ok(user);
+        }
+
+
+        /// <summary>
+        /// 添加数据
+        /// </summary>
+        /// <param name="id">参数id</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Add(User user)
+        {
+            IUserService userService = new UserService();
+            var count = await userService.Add(user);
+            return Ok(count);
+        }
+
+        ///// <summary>
+        ///// 更新数据
+        ///// </summary>
+        ///// <param name="id">参数id</param>
+        ///// <returns></returns>
+        [HttpPut]
+        public async Task<IActionResult> Update(User user)
+        {
+            IUserService userService = new UserService();
+            var sucess = await userService.Update(user);
+            return Ok(sucess);
+        }
+
+        ///// <summary>
+        ///// 删除数据
+        ///// </summary>
+        ///// <param name="id">参数id</param>
+        ///// <returns></returns>
+        [HttpDelete]
+        public async Task<IActionResult> Delete(object[] ids)
+        {
+            IUserService userService = new UserService();
+            var sucess = await userService.DeleteByIds(ids);
+            return Ok(sucess);
+        }
+
+
     }
 }
