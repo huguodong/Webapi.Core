@@ -6,7 +6,7 @@ using Webapi.Core.Model.Enity;
 
 namespace Webapi.Core.IRepository
 {
-    interface IUserRepository : IBaseRepository<User>
+    public interface IUserRepository : IBaseRepository<User>
     {
 
     }
