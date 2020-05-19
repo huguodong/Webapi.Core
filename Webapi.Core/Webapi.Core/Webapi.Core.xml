@@ -31,6 +31,12 @@
             用户管理
             </summary>
         </member>
+        <member name="M:Webapi.Core.Controllers.UserController.Autofac">
+            <summary>
+            测试autofac
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Webapi.Core.Controllers.UserController.Hello">
             <summary>
             hello请求

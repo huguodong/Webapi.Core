@@ -10,7 +10,13 @@ namespace Webapi.Core.Service.Base
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
-        public IBaseRepository<TEntity> baseDal = new BaseRepository<TEntity>();
+        private readonly IBaseRepository<TEntity> baseDal;
+
+
+        public BaseService(IBaseRepository<TEntity> baseRepository)
+        {
+            baseDal = baseRepository;
+        }
 
         /// <summary>
         /// 写入实体

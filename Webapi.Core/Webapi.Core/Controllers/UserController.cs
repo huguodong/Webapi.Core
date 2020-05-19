@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Webapi.Core.Auth;
 using Webapi.Core.IService;
@@ -14,6 +15,25 @@ namespace Webapi.Core.Controllers
     /// </summary>
     public class UserController : BaseController
     {
+
+        private readonly IUserService _userService;
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+        /// <summary>
+        /// 测试autofac
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Autofac()
+        {
+            var count = await _userService.GetCount();
+
+            return Ok(count);
+        }
+
+
         /// <summary>
         /// hello请求
         /// </summary>
@@ -125,8 +145,8 @@ namespace Webapi.Core.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUser(int id)
         {
-            IUserService userService = new UserService();
-            User user = await userService.QueryByID(id);
+
+            User user = await _userService.QueryByID(id);
             return Ok(user);
         }
 
@@ -139,8 +159,8 @@ namespace Webapi.Core.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(User user)
         {
-            IUserService userService = new UserService();
-            var count = await userService.Add(user);
+
+            var count = await _userService.Add(user);
             return Ok(count);
         }
 
@@ -152,8 +172,8 @@ namespace Webapi.Core.Controllers
         [HttpPut]
         public async Task<IActionResult> Update(User user)
         {
-            IUserService userService = new UserService();
-            var sucess = await userService.Update(user);
+
+            var sucess = await _userService.Update(user);
             return Ok(sucess);
         }
 
@@ -165,8 +185,7 @@ namespace Webapi.Core.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(object[] ids)
         {
-            IUserService userService = new UserService();
-            var sucess = await userService.DeleteByIds(ids);
+            var sucess = await _userService.DeleteByIds(ids);
             return Ok(sucess);
         }
 
