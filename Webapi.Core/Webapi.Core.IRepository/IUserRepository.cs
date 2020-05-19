@@ -15,5 +15,6 @@ namespace Webapi.Core.IRepository
         /// </summary>
         /// <returns></returns>
         Task<int> GetCount();
+
     }
 }

@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Webapi.Core.Auth;
+using Webapi.Core.Common.Helper;
+using Webapi.Core.Common.Redis;
 using Webapi.Core.IService;
 using Webapi.Core.Model;
 using Webapi.Core.Model.Enity;
@@ -17,9 +20,12 @@ namespace Webapi.Core.Controllers
     {
 
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IRedisCacheManager _redisCacheManager;
+
+        public UserController(IUserService userService, IRedisCacheManager redisCacheManager)
         {
             _userService = userService;
+            _redisCacheManager = redisCacheManager;
         }
         /// <summary>
         /// 测试autofac
@@ -33,6 +39,30 @@ namespace Webapi.Core.Controllers
             return Ok(count);
         }
 
+
+
+        /// <summary>
+        /// 测试Redis
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> Redis(int id)
+        {
+
+            var key = $"Redis{id}";
+            User user = new User();
+            if (_redisCacheManager.Get<object>(key) != null)
+            {
+                user = _redisCacheManager.Get<User>(key);
+            }
+            else
+            {
+                user = await _userService.QueryByID(id);
+                _redisCacheManager.Set(key, user, TimeSpan.FromHours(2));//缓存2小时
+            }
+
+            return Ok(user);
+        }
 
         /// <summary>
         /// hello请求
@@ -188,6 +218,7 @@ namespace Webapi.Core.Controllers
             var sucess = await _userService.DeleteByIds(ids);
             return Ok(sucess);
         }
+
 
 
     }

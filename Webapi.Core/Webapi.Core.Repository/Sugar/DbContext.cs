@@ -20,13 +20,6 @@ public class DbContext<T> where T : class, new()
             IsAutoCloseConnection = true,//开启自动释放模式和EF原理一样我就不多解释了
 
         });
-        //调式代码 用来打印SQL 
-        Db.Aop.OnLogExecuting = (sql, pars) =>
-        {
-            Console.WriteLine(sql + "\r\n" +
-                Db.Utilities.SerializeObject(pars.ToDictionary(it => it.ParameterName, it => it.Value)));
-            Console.WriteLine();
-        };
 
     }
     //注意：不能写成静态的

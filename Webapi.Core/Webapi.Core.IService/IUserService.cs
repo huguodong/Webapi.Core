@@ -14,5 +14,6 @@ namespace Webapi.Core.IService
         /// </summary>
         /// <returns></returns>
         Task<int> GetCount();
+
     }
 }

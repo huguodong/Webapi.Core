@@ -17,11 +17,14 @@ namespace Webapi.Core.Service
         public UserService(IBaseRepository<User> baseRepository, IUserRepository userRepository) : base(baseRepository)
         {
             userDal = userRepository;
+
         }
 
         public async Task<int> GetCount()
         {
             return await userDal.GetCount();
         }
+
+
     }
 }

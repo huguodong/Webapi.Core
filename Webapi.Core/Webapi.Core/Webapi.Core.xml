@@ -37,6 +37,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Webapi.Core.Controllers.UserController.Redis(System.Int32)">
+            <summary>
+            测试Redis
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Webapi.Core.Controllers.UserController.Hello">
             <summary>
             hello请求
