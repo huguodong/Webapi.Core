@@ -27,6 +27,20 @@ namespace Webapi.Core.Controllers
             _userService = userService;
             _redisCacheManager = redisCacheManager;
         }
+
+
+        /// <summary>
+        /// 测试automapper
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> AutoMapper(int id)
+        {
+            var userinfo = await _userService.GetUserDetails(id);
+
+            return Ok(userinfo);
+        }
+
         /// <summary>
         /// 测试autofac
         /// </summary>

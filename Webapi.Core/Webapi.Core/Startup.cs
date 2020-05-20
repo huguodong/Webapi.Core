@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -41,6 +42,9 @@ namespace Webapi.Core
 
             //jwt授权验证
             services.AddAuthorizationSetup();
+
+            //注册automapper
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
         }

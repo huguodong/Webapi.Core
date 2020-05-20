@@ -18,6 +18,11 @@
             <param name="jwtStr"></param>
             <returns></returns>
         </member>
+        <member name="M:Webapi.Core.AutoMapper.CustomProfile.#ctor">
+            <summary>
+            配置构造函数，用来创建关系映射
+            </summary>
+        </member>
         <member name="M:Webapi.Core.Controllers.TestController.Sum(System.Int32,System.Int32)">
             <summary>
             求和
@@ -30,6 +35,12 @@
             <summary>
             用户管理
             </summary>
+        </member>
+        <member name="M:Webapi.Core.Controllers.UserController.AutoMapper(System.Int32)">
+            <summary>
+            测试automapper
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Webapi.Core.Controllers.UserController.Autofac">
             <summary>

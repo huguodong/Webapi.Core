@@ -125,5 +125,35 @@
             角色
             </summary>
         </member>
+        <member name="P:Webapi.Core.Model.ViewModel.UserViewModel.UserId">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.ViewModel.UserViewModel.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.ViewModel.UserViewModel.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.ViewModel.UserViewModel.Birthday">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.ViewModel.UserViewModel.Phone">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.ViewModel.UserViewModel.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
     </members>
 </doc>

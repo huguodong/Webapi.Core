@@ -27,5 +27,7 @@
     <ProjectReference Include="..\Webapi.Core.Service\Webapi.Core.Service.csproj" />
   </ItemGroup>
 
-
+<PropertyGroup>
+　　<GenerateDocumentationFile>true</GenerateDocumentationFile>
+</PropertyGroup>
 </Project>
