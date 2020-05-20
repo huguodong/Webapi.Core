@@ -32,7 +32,6 @@ namespace Webapi.Core.Service
         public async Task<UserViewModel> GetUserDetails(int id)
         {
             var userinfo = await userDal.QueryByID(id);
-
             if (userinfo != null)
             {
                 //UserViewModel model = new UserViewModel()

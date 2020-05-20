@@ -48,7 +48,12 @@ namespace Webapi.Core.SetUp
 
             //2.1【认证】、core自带官方JWT认证
             // 开启Bearer认证
-            services.AddAuthentication("Bearer")
+            services.AddAuthentication(o =>
+            {
+                o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            })
              // 添加JwtBearer服务
              .AddJwtBearer(o =>
              {

@@ -10,6 +10,7 @@ namespace Webapi.Core.SetUp
     {
         public static void AddSwaggerSetup(this IServiceCollection services)
         {
+
             if (services == null) throw new ArgumentNullException(nameof(services));
 
             var ApiName = "Webapi.Core";

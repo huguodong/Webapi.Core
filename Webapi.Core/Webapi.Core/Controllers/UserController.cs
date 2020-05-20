@@ -30,6 +30,17 @@ namespace Webapi.Core.Controllers
 
 
         /// <summary>
+        /// 抛出异常
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> Throw()
+        {
+            var userinfo = await _userService.GetUserDetails(1);
+            return Ok(userinfo);
+        }
+
+        /// <summary>
         /// 测试automapper
         /// </summary>
         /// <returns></returns>
