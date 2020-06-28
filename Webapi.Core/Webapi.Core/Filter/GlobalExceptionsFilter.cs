@@ -3,11 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Webapi.Core.Log;
+using Webapi.Core.Log4net;
 
 namespace Webapi.Core.Filter
 {
@@ -33,7 +29,7 @@ namespace Webapi.Core.Filter
             context.Result = new InternalServerErrorObjectResult(json);
 
             //采用log4net 进行错误日志记录
-            _loggerHelper.Error(json.Message,"出现未知异常", context.Exception);
+            _loggerHelper.Error(json.Message, "出现未知异常", context.Exception);
 
         }
 

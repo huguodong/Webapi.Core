@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using Webapi.Core.IService;
-using Webapi.Core.Log;
+using Webapi.Core.Log4net;
 using Webapi.Core.Service;
 
 namespace Webapi.Core.Controllers

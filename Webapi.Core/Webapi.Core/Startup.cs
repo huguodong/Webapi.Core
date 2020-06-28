@@ -12,7 +12,7 @@ using System.IO;
 using Webapi.Core.Common.Helper;
 using Webapi.Core.Common.Redis;
 using Webapi.Core.Filter;
-using Webapi.Core.Log;
+using Webapi.Core.Log4net;
 using Webapi.Core.Repository.Sugar;
 using Webapi.Core.SetUp;
 
