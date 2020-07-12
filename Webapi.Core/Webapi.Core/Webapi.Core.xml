@@ -4,6 +4,31 @@
         <name>Webapi.Core</name>
     </assembly>
     <members>
+        <member name="M:Webapi.Core.AOP.CacheAOPbase.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            AOP的拦截方法
+            </summary>
+            <param name="invocation"></param>
+        </member>
+        <member name="M:Webapi.Core.AOP.CacheAOPbase.CustomCacheKey(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            自定义缓存的key
+            </summary>
+            <param name="invocation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Webapi.Core.AOP.CacheAOPbase.GetArgumentValue(System.Object)">
+            <summary>
+            object 转 string
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Webapi.Core.AOP.RedisCacheAOP">
+            <summary>
+            面向切面的缓存使用
+            </summary>
+        </member>
         <member name="M:Webapi.Core.Auth.JwtHelper.IssueJwt(Webapi.Core.Model.TokenModel)">
             <summary>
             颁发JWT字符串
@@ -130,6 +155,12 @@
             <param name="id">参数id</param>
             <returns></returns>
         </member>
+        <member name="M:Webapi.Core.Controllers.UserController.AopTest(System.Int32)">
+            <summary>
+            测试aop缓存redis
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Webapi.Core.Filter.GlobalExceptionsFilter.JsonErrorResponse.Message">
             <summary>
             生产环境的消息
@@ -138,6 +169,11 @@
         <member name="P:Webapi.Core.Filter.GlobalExceptionsFilter.JsonErrorResponse.DevelopmentMessage">
             <summary>
             开发环境的消息
+            </summary>
+        </member>
+        <member name="T:Webapi.Core.JsonConv.LowercasePolicy">
+            <summary>
+            返回对象全小写
             </summary>
         </member>
         <member name="T:Webapi.Core.Log4net.ILoggerHelper">
@@ -472,6 +508,9 @@
             <param name="source">source</param>
             <param name="message">message</param>
             <param name="exception">ex</param>
+        </member>
+        <member name="M:Webapi.Core.Middleware.CustomExceptionMiddleware.HandleExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+            
         </member>
         <member name="P:Webapi.Core.Startup.repository">
             <summary>

@@ -243,8 +243,16 @@ namespace Webapi.Core.Controllers
             var sucess = await _userService.DeleteByIds(ids);
             return Ok(sucess);
         }
-
-
+        /// <summary>
+        /// 测试aop缓存redis
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> AopTest(int id)
+        {
+            var sucess = await _userService.GetUserDetails(id);
+            return Ok(sucess);
+        }
 
     }
 }

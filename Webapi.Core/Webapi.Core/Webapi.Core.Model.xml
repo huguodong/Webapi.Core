@@ -4,6 +4,21 @@
         <name>Webapi.Core.Model</name>
     </assembly>
     <members>
+        <member name="T:Webapi.Core.Model.Attributes.CachingAttribute">
+            <summary>
+            这个Attribute就是使用时候的验证，把它添加到要缓存数据的方法中，即可完成缓存的操作。
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.Attributes.CachingAttribute.CustomKeyValue">
+            <summary>
+            自定义key
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.Attributes.CachingAttribute.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
         <member name="T:Webapi.Core.Model.Enity.User">
             <summary>
             用户表
@@ -29,6 +44,26 @@
             Default:
             Nullable:True
             </summary>           
+        </member>
+        <member name="P:Webapi.Core.Model.ErrorModel.code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.ErrorModel.msg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.ErrorModel.detail">
+            <summary>
+            错误详情
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.ErrorModel.timestamp">
+            <summary>
+            时间戳
+            </summary>
         </member>
         <member name="T:Webapi.Core.Model.MessageModel`1">
             <summary>

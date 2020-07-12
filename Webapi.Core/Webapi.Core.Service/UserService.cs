@@ -7,6 +7,7 @@ using Webapi.Core.IRepository;
 using Webapi.Core.IRepository.Base;
 using Webapi.Core.IService;
 using Webapi.Core.Model;
+using Webapi.Core.Model.Attributes;
 using Webapi.Core.Model.Enity;
 using Webapi.Core.Model.ViewModel;
 using Webapi.Core.Service.Base;
@@ -29,6 +30,8 @@ namespace Webapi.Core.Service
             return await userDal.GetCount();
         }
 
+
+        [Caching( CustomKeyValue = "userid",AbsoluteExpiration =1)]
         public async Task<UserViewModel> GetUserDetails(int id)
         {
             var userinfo = await userDal.GetById(id);
