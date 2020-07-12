@@ -12,7 +12,7 @@ namespace Webapi.Core.IService.Base
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
-        Task<bool> DeleteByIds(object[] ids);
+        Task<int> DeleteByIds(object[] ids);
 
         /// <summary>
         /// 根据ID查询

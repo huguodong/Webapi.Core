@@ -34,7 +34,7 @@ namespace Webapi.Core.Service.Base
         /// <param name="ids"></param>
         /// <returns></returns>
 
-        public async Task<bool> DeleteByIds(object[] ids)
+        public async Task<int> DeleteByIds(object[] ids)
         {
             return await baseDal.DeleteByIds(ids);
         }
@@ -46,7 +46,7 @@ namespace Webapi.Core.Service.Base
         /// <returns></returns>
         public async Task<TEntity> QueryByID(object objId)
         {
-            return await baseDal.QueryByID(objId);
+            return await baseDal.GetById(objId);
         }
 
         /// <summary>
