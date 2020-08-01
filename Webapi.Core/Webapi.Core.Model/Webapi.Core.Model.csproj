@@ -11,7 +11,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="sqlSugarCore" Version="5.0.0.14" />
+		<PackageReference Include="sqlSugarCore" Version="5.0.0.15" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Enum\" />
 	</ItemGroup>
 
 </Project>

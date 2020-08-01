@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Webapi.Core.Common.Attributes;
 using Webapi.Core.IRepository;
 using Webapi.Core.IRepository.Base;
 using Webapi.Core.IService;
@@ -31,7 +32,7 @@ namespace Webapi.Core.Service
         }
 
 
-        [Caching( CustomKeyValue = "userid",AbsoluteExpiration =1)]
+        [Caching(AbsoluteExpiration =1)]
         public async Task<UserViewModel> GetUserDetails(int id)
         {
             var userinfo = await userDal.GetById(id);

@@ -1,8 +1,5 @@
 ﻿using Autofac;
 using AutoMapper;
-using log4net;
-using log4net.Config;
-using log4net.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +10,6 @@ using Webapi.Core.Common.Helper;
 using Webapi.Core.Common.Redis;
 using Webapi.Core.Filter;
 using Webapi.Core.JsonConv;
-using Webapi.Core.Log4net;
 using Webapi.Core.Middleware;
 using Webapi.Core.Repository.Sugar;
 using Webapi.Core.SetUp;
@@ -29,11 +25,6 @@ namespace Webapi.Core
 
         public IConfiguration Configuration { get; }
 
-        /// <summary>
-        /// log4net 仓储库
-        /// </summary>
-        public static ILoggerRepository repository { get; set; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -43,20 +34,12 @@ namespace Webapi.Core
             //注册Redis
             services.AddSingleton<IRedisCacheManager, RedisCacheManager>();
 
-            //log注入ILoggerHelper
-            services.AddSingleton<ILoggerHelper, LogHelper>();
-
             //数据库配置
             BaseDBConfig.ConnectionString = Configuration.GetSection("AppSettings:ConnectionString").Value;
 
             //var text = Appsettings.app(new string[] { "AppSettings", "ConnectionString" });
             //Console.WriteLine($"ConnectionString:{text}");
             //Console.ReadLine();
-
-            //log4net
-            repository = LogManager.CreateRepository("");//需要获取日志的仓库名，也就是你的当然项目名
-            XmlConfigurator.Configure(repository, new FileInfo("Log4net.config"));//指定配置文件，
-
 
             //注册Swagger
             services.AddSwaggerSetup();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Webapi.Core.Model.Attributes
+namespace Webapi.Core.Common.Attributes
 {
     /// <summary>
     /// 这个Attribute就是使用时候的验证，把它添加到要缓存数据的方法中，即可完成缓存的操作。

@@ -8,7 +8,7 @@ using System.Text;
 using Webapi.Core.Common.Helper;
 using Webapi.Core.Model;
 
-namespace Webapi.Core.Auth
+namespace Webapi.Core.Common
 {
     public class JwtHelper
     {

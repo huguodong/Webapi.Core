@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Webapi.Core.Common.Helper;
-using Webapi.Core.Log4net;
 using Webapi.Core.Model;
 
 namespace Webapi.Core.Middleware
@@ -13,11 +12,9 @@ namespace Webapi.Core.Middleware
     public class CustomExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILoggerHelper _logger;
-        public CustomExceptionMiddleware(RequestDelegate next, ILoggerHelper logger)
+        public CustomExceptionMiddleware(RequestDelegate next)
         {
             _next = next;
-            _logger = logger;
         }
         public async Task Invoke(HttpContext httpContext)
         {
@@ -27,7 +24,7 @@ namespace Webapi.Core.Middleware
             }
             catch (Exception ex)
             {
-                _logger.Error(ex.Message, ex); // 日志记录
+                //_logger.Error(ex.Message, ex); // 日志记录
                 await HandleExceptionAsync(httpContext, ex.Message);
             }
             finally

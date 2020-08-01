@@ -4,19 +4,44 @@
         <name>Webapi.Core.Model</name>
     </assembly>
     <members>
-        <member name="T:Webapi.Core.Model.Attributes.CachingAttribute">
+        <member name="T:Webapi.Core.Model.Attributes.EnumInAttribute">
             <summary>
-            这个Attribute就是使用时候的验证，把它添加到要缓存数据的方法中，即可完成缓存的操作。
+            判断是否值是否在枚举类里面
             </summary>
         </member>
-        <member name="P:Webapi.Core.Model.Attributes.CachingAttribute.CustomKeyValue">
+        <member name="T:Webapi.Core.Model.Attributes.PositiveInteger">
             <summary>
-            自定义key
+            正整数
             </summary>
         </member>
-        <member name="P:Webapi.Core.Model.Attributes.CachingAttribute.IsDelete">
+        <member name="T:Webapi.Core.Model.Attributes.StringArrayAttribute">
             <summary>
-            是否删除
+            限制数组范围
+            </summary>
+        </member>
+        <member name="T:Webapi.Core.Model.CurdModel">
+            <summary>
+            curd返回成功或失败数量
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.CurdModel.Success">
+            <summary>
+            成功数量
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.CurdModel.Failed">
+            <summary>
+            失败数量
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.CurdModel.Msg">
+            <summary>
+            消息数量
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.CurdModel.timestamp">
+            <summary>
+            时间戳
             </summary>
         </member>
         <member name="T:Webapi.Core.Model.Enity.User">
@@ -45,6 +70,66 @@
             Nullable:True
             </summary>           
         </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.OK">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.Faild">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.DbError">
+            <summary>
+            数据库错误
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.ParameterError">
+            <summary>
+            参数错误
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.Forbidden">
+            <summary>
+            权限不足
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.NotFount">
+            <summary>
+            没有找到
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.InternalServerError">
+            <summary>
+            服务器错误
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.TokenError">
+            <summary>
+            无效token
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.OtherLogin">
+            <summary>
+            其他客户端登录
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.HttpCodeEnum.TokenTimeOut">
+            <summary>
+            token过期
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.YesNoEnum.NO">
+            <summary>
+            否
+            </summary>
+        </member>
+        <member name="F:Webapi.Core.Model.Enum.YesNoEnum.YES">
+            <summary>
+            是
+            </summary>
+        </member>
         <member name="P:Webapi.Core.Model.ErrorModel.code">
             <summary>
             状态码
@@ -65,12 +150,22 @@
             时间戳
             </summary>
         </member>
+        <member name="P:Webapi.Core.Model.StringIdModel.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.IntIdModel.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
         <member name="T:Webapi.Core.Model.MessageModel`1">
             <summary>
             通用返回信息类
             </summary>
         </member>
-        <member name="P:Webapi.Core.Model.MessageModel`1.status">
+        <member name="P:Webapi.Core.Model.MessageModel`1.code">
             <summary>
             状态码
             </summary>
@@ -85,9 +180,15 @@
             返回信息
             </summary>
         </member>
-        <member name="P:Webapi.Core.Model.MessageModel`1.response">
+        <member name="P:Webapi.Core.Model.MessageModel`1.data">
             <summary>
             返回数据集合
+            </summary>
+            
+        </member>
+        <member name="P:Webapi.Core.Model.MessageModel`1.timestamp">
+            <summary>
+            时间戳
             </summary>
         </member>
         <member name="T:Webapi.Core.Model.PageModel`1">
@@ -100,6 +201,11 @@
             当前页标
             </summary>
         </member>
+        <member name="P:Webapi.Core.Model.PageModel`1.PageSize">
+            <summary>
+            每页大小
+            </summary>
+        </member>
         <member name="P:Webapi.Core.Model.PageModel`1.pageCount">
             <summary>
             总页数
@@ -110,14 +216,39 @@
             数据总数
             </summary>
         </member>
-        <member name="P:Webapi.Core.Model.PageModel`1.PageSize">
+        <member name="P:Webapi.Core.Model.PageModel`1.IsFirstPage">
             <summary>
-            每页大小
+            是否第一页
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.PageModel`1.IsLastPage">
+            <summary>
+            是否最后一页
             </summary>
         </member>
         <member name="P:Webapi.Core.Model.PageModel`1.data">
             <summary>
             返回数据
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.PageViewModel.PageIndex">
+            <summary>
+            页数
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.PageViewModel.PageSize">
+            <summary>
+            每页显示数量
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.PageViewModel.OrderType">
+            <summary>
+            排序类型desc,asc
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.PageViewModel.OrderBy">
+            <summary>
+            排序字段
             </summary>
         </member>
         <member name="T:Webapi.Core.Model.TableModel`1">
@@ -155,9 +286,24 @@
             Id
             </summary>
         </member>
+        <member name="P:Webapi.Core.Model.TokenModel.DeptId">
+            <summary>
+            部门Id
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.TokenModel.UName">
+            <summary>
+            用户名 
+            </summary>
+        </member>
         <member name="P:Webapi.Core.Model.TokenModel.Role">
             <summary>
             角色
+            </summary>
+        </member>
+        <member name="P:Webapi.Core.Model.TokenModel.MaxRoleLevel">
+            <summary>
+            角色等级
             </summary>
         </member>
         <member name="P:Webapi.Core.Model.ViewModel.UserViewModel.UserId">

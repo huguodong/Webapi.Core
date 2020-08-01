@@ -5,11 +5,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="9.0.0" />
-		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+		<PackageReference Include="AutoMapper" Version="10.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Webapi.Core.Common\Webapi.Core.Common.csproj" />
 		<ProjectReference Include="..\Webapi.Core.IRepository\Webapi.Core.IRepository.csproj" />
 		<ProjectReference Include="..\Webapi.Core.IService\Webapi.Core.IService.csproj" />
 		<ProjectReference Include="..\Webapi.Core.Repository\Webapi.Core.Repository.csproj" />

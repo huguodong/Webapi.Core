@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Webapi.Core
 {
@@ -22,7 +23,12 @@ namespace Webapi.Core
               .UseServiceProviderFactory(new AutofacServiceProviderFactory()) //<--NOTE THIS
         .ConfigureWebHostDefaults(webBuilder =>
         {
-            webBuilder.UseStartup<Startup>();
+            webBuilder.UseStartup<Startup>()
+                      .UseSerilog((context, logger) =>//×¢²áSerilog
+                      {
+                          logger.ReadFrom.Configuration(context.Configuration);
+                          logger.Enrich.FromLogContext();
+                      });
         });
     }
 }

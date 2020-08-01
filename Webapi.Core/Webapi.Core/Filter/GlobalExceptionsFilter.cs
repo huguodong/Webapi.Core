@@ -3,19 +3,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Hosting;
-using Webapi.Core.Log4net;
 
 namespace Webapi.Core.Filter
 {
     public class GlobalExceptionsFilter : IExceptionFilter
     {
         private readonly IHostEnvironment _env;
-        private readonly ILoggerHelper _loggerHelper;
 
-        public GlobalExceptionsFilter(IHostEnvironment env, ILoggerHelper loggerHelper)
+        public GlobalExceptionsFilter(IHostEnvironment env)
         {
             _env = env;
-            _loggerHelper = loggerHelper;
         }
 
         public void OnException(ExceptionContext context)
@@ -29,7 +26,7 @@ namespace Webapi.Core.Filter
             context.Result = new InternalServerErrorObjectResult(json);
 
             //采用log4net 进行错误日志记录
-            _loggerHelper.Error(json.Message, "出现未知异常", context.Exception);
+            //_loggerHelper.Error(json.Message, "出现未知异常", context.Exception);
 
         }
 

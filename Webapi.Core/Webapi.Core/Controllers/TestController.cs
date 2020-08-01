@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using Webapi.Core.IService;
-using Webapi.Core.Log4net;
 using Webapi.Core.Service;
 
 namespace Webapi.Core.Controllers
@@ -9,12 +9,11 @@ namespace Webapi.Core.Controllers
 
     public class TestController : BaseController
     {
-        private readonly ILoggerHelper _logger;
+        private readonly ILogger<TestController> _logger;
 
-
-        public TestController(ILoggerHelper loggerHelper)
+        public TestController(ILogger<TestController> logger)
         {
-            _logger = loggerHelper;
+           _logger = logger;
         }
 
         /// <summary>
@@ -24,9 +23,13 @@ namespace Webapi.Core.Controllers
         [HttpGet]
         public IActionResult LogTest()
         {
-            _logger.Error(typeof(TestController), "这是错误日志", new Exception("123"));
-            _logger.Debug(typeof(TestController), "这是bug日志");
+            //_logger.Error(typeof(TestController), "这是错误日志", new Exception("123"));
+            //_logger.Debug(typeof(TestController), "这是bug日志");
             //throw new System.IO.IOException();
+            _logger.LogInformation("info 日志");
+            _logger.LogDebug("debug 日志");
+            _logger.LogError(new System.IO.IOException(), "io 错误");
+            _logger.LogInformation("ip:{Ip},username{UserName},userid:{UserId}","127.0.0.1","admin","1");
             return Ok();
         }
 

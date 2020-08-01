@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Webapi.Core.Auth;
+using Webapi.Core.Common;
 using Webapi.Core.Common.Helper;
 using Webapi.Core.Common.Redis;
+using Webapi.Core.IRepository;
 using Webapi.Core.IService;
 using Webapi.Core.Model;
 using Webapi.Core.Model.Enity;
@@ -20,11 +21,13 @@ namespace Webapi.Core.Controllers
     {
 
         private readonly IUserService _userService;
+        private readonly IUserRepository _userRepository;
         private readonly IRedisCacheManager _redisCacheManager;
 
-        public UserController(IUserService userService, IRedisCacheManager redisCacheManager)
+        public UserController(IUserService userService,IUserRepository userRepository, IRedisCacheManager redisCacheManager)
         {
             _userService = userService;
+            _userRepository = userRepository;
             _redisCacheManager = redisCacheManager;
         }
 
@@ -82,7 +85,7 @@ namespace Webapi.Core.Controllers
             }
             else
             {
-                user = await _userService.QueryByID(id);
+                user = await _userRepository.GetById(id);
                 _redisCacheManager.Set(key, user, TimeSpan.FromHours(2));//缓存2小时
             }
 
@@ -201,7 +204,7 @@ namespace Webapi.Core.Controllers
         public async Task<IActionResult> GetUser(int id)
         {
 
-            User user = await _userService.QueryByID(id);
+            var user = await _userService.GetById(id);
             return Ok(user);
         }
 

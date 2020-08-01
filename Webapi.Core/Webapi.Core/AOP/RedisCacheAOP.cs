@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Webapi.Core.Common.Attributes;
 using Webapi.Core.Common.Redis;
 using Webapi.Core.Model.Attributes;
 
